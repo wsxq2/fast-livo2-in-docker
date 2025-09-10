@@ -1,0 +1,32 @@
+{
+    "name": "FAST-LIVO2 Development For Humble",
+    "dockerComposeFile": ["../docker/docker-compose.yml"],
+    "service": "fast-livo2-dev-humble",
+    "workspaceFolder": "/home/developer/livo2_ws",
+    
+    // 基本扩展
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-vscode.cmake-tools",
+                "ms-iot.vscode-ros",
+                "llvm-vs-code-extensions.vscode-clangd"
+            ],
+            "settings": {
+                "http.proxy": "http://host.docker.internal:7890",
+                "http.proxyStrictSSL": false,
+                "clangd.path": "/usr/local/bin/clangd",
+                "C_Cpp.intelliSenseEngine": "disabled",
+                "terminal.integrated.defaultProfile.linux": "bash",
+                "terminal.integrated.profiles.linux": {
+                    "bash": {
+                        "path": "/bin/bash",
+                        "args": [
+                            "-l"
+                        ]
+                    }
+                }
+            }
+        }
+    },
+}

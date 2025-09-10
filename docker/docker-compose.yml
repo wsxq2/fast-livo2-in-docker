@@ -1,0 +1,34 @@
+services:
+  fast-livo2-dev-humble:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - PROXY_HOST=${PROXY_HOST:-host.docker.internal}
+        - PROXY_PORT=${PROXY_PORT:-7890}
+    image: fast-livo2:humble
+    container_name: fast-livo2-development-humble
+    
+    # Enable GUI applications (for RViz, etc.)
+    environment:
+      - DISPLAY=${DISPLAY}
+      - QT_X11_NO_MITSHM=1
+      - XAUTHORITY=/tmp/.docker.xauth
+    
+    volumes:
+      # X11 forwarding for GUI applications
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+      - /tmp/.docker.xauth:/tmp/.docker.xauth:rw
+      
+      # Mount your local development directory
+      - ../:/home/developer/livo2_ws:rw
+      
+    # Network mode for ROS communication
+    network_mode: "host"
+    
+    # Keep container running
+    stdin_open: true
+    tty: true
+    
+    # Privileged mode for hardware access (if needed for sensors)
+    privileged: true
