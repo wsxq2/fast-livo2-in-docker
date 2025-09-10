@@ -2,7 +2,7 @@
 
 > 部分内容参考自 https://github.com/integralrobotics/FAST-LIVO2 中的 README.md 说明。
 
-使用前，需要[安装并配置 Docker]({% post_url 2022-03-16-Docker使用笔记 %}#安装和配置)
+使用前，需要[安装并配置 Docker](https://wsxq2.55555.io/blog/2022/03/16/Docker%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/#%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE)
 
 完成后，在 WSL 中执行以下命令安装依赖并下载源码：
 
