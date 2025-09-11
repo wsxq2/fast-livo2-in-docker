@@ -1,7 +1,7 @@
 {
     "name": "FAST-LIVO2 Development For Noetic",
     "dockerComposeFile": ["../docker/docker-compose.yml"],
-    "service": "fast-livo2-dev-noetic",
+    "service": "fast-livo2",
     "workspaceFolder": "/home/developer/workspace",
     
     // 基本扩展
