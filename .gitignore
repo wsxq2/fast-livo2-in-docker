@@ -9,3 +9,4 @@ data/
 devel/
 .catkin_workspace
 src/CMakeLists.txt
+docker/.env

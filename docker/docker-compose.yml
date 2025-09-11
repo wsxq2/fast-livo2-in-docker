@@ -7,6 +7,7 @@ services:
       args:
         - PROXY_HOST=${PROXY_HOST:-host.docker.internal}
         - PROXY_PORT=${PROXY_PORT:-7890}
+        - USER_UID=${USER_UID:-1000}
     image: fast-livo2:noetic
     container_name: fast-livo2-development-noetic
 
