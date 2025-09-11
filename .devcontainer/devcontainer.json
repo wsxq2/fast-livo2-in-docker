@@ -1,7 +1,7 @@
 {
     "name": "FAST-LIVO2 Development For Humble",
     "dockerComposeFile": ["../docker/docker-compose.yml"],
-    "service": "fast-livo2-dev-humble",
+    "service": "fast-livo2",
     "workspaceFolder": "/home/developer/livo2_ws",
     
     // 基本扩展
