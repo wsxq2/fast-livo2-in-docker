@@ -80,7 +80,10 @@ EOF
 
     
 # Create a non-root user
-RUN useradd -m -s /bin/bash developer && \
+ARG USER_UID=1000
+ARG USER_GID=${USER_UID}
+RUN groupadd --gid ${USER_GID} developer && \
+    useradd --uid ${USER_UID} --gid ${USER_GID} -m -s /bin/bash developer && \ 
     echo "developer:developer" | chpasswd && \
     usermod -aG sudo developer && \
     echo developer ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/developer && \

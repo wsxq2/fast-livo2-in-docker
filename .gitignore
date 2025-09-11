@@ -6,3 +6,7 @@ src/livox_ros_driver2
 src/rpg_vikit
 .vscode
 data/
+devel/
+.catkin_workspace
+src/CMakeLists.txt
+docker/.env

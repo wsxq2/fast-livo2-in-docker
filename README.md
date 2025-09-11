@@ -24,7 +24,7 @@ git clone https://github.com/Livox-SDK/livox_ros_driver2
 ├── .vscode/
 ├── data/
 │   └── Retail_Street.bag
-├── docker/
+├── docker/ # docker 相关文件
 │   ├── .env
 │   ├── Dockerfile
 │   └── docker-compose.yml
@@ -35,11 +35,21 @@ git clone https://github.com/Livox-SDK/livox_ros_driver2
 └── README.md
 ```
 
-根据实际情况调整下 `.env` 文件中的内容。其中有三个变量，均要正确配置：
+根据实际情况调整下 `docker/.env` 文件中的内容，如果没有此文件则请手动添加，参考内容如下：
+
+```bash
+PROXY_HOST=host.docker.internal
+PROXY_PORT=7890
+USER_UID=1000
+DISPLAY=host.docker.internal:0.0
+```
+
+其中的变量均要正确配置：
 
 - `PROXY_HOST`：当前设置的是你的主机。这通常是正确的，因为容器一般运行在本地主机上。但你需要确保你开启了 clash 之类的 fq 工具，且需要启用“Allow LAN”相关设置。目前支持的是 HTTP 代理。
 - `PROXY_PORT`：当前设置是 7890。这是 clash 的默认端口。
 - `DISPLAY`：当前设置的是你的主机。这要求你在主机上安装 X11 服务器，例如 [vcxsrv](https://sourceforge.net/projects/vcxsrv/)。如果没有正确设置此变量，会导致你无法启动 RVIZ 等 GUI 工具。
+- `USER_UID`: 务必设置为你的用户的 UID，否则在 docker 中无权限操作当前目录。
 
 此外 `devcontainer.json` 中也需要配置代理变量，否则 vscode 拓展可能无法下载。该变量当前为：
 

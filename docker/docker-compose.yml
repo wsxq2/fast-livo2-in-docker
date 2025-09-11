@@ -1,3 +1,4 @@
+name: fast-livo2-dev-humble-${USER}
 services:
   fast-livo2-dev-humble:
     build:
@@ -6,9 +7,8 @@ services:
       args:
         - PROXY_HOST=${PROXY_HOST:-host.docker.internal}
         - PROXY_PORT=${PROXY_PORT:-7890}
-    image: fast-livo2:humble
-    container_name: fast-livo2-development-humble
-    
+        - USER_UID=${USER_UID:-1000}
+
     # Enable GUI applications (for RViz, etc.)
     environment:
       - DISPLAY=${DISPLAY}
