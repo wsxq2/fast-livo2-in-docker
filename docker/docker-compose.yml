@@ -1,6 +1,6 @@
 name: fast-livo2-dev-noetic-${USER}
 services:
-  fast-livo2-dev-noetic:
+  fast-livo2:
     build:
       context: .
       dockerfile: Dockerfile
@@ -9,7 +9,6 @@ services:
         - PROXY_PORT=${PROXY_PORT:-7890}
         - USER_UID=${USER_UID:-1000}
     image: fast-livo2:noetic
-    container_name: fast-livo2-development-noetic
 
     # Enable GUI applications (for RViz, etc.)
     environment:
