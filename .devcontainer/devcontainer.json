@@ -1,8 +1,8 @@
 {
-    "name": "FAST-LIVO2 Development For Humble",
+    "name": "FAST-LIVO2 Development For Noetic",
     "dockerComposeFile": ["../docker/docker-compose.yml"],
-    "service": "fast-livo2-dev-humble",
-    "workspaceFolder": "/home/developer/livo2_ws",
+    "service": "fast-livo2-dev-noetic",
+    "workspaceFolder": "/home/developer/workspace",
     
     // 基本扩展
     "customizations": {

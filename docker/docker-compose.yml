@@ -1,14 +1,15 @@
+name: fast-livo2-dev-noetic-${USER}
 services:
-  fast-livo2-dev-humble:
+  fast-livo2-dev-noetic:
     build:
       context: .
       dockerfile: Dockerfile
       args:
         - PROXY_HOST=${PROXY_HOST:-host.docker.internal}
         - PROXY_PORT=${PROXY_PORT:-7890}
-    image: fast-livo2:humble
-    container_name: fast-livo2-development-humble
-    
+    image: fast-livo2:noetic
+    container_name: fast-livo2-development-noetic
+
     # Enable GUI applications (for RViz, etc.)
     environment:
       - DISPLAY=${DISPLAY}
@@ -21,7 +22,7 @@ services:
       - /tmp/.docker.xauth:/tmp/.docker.xauth:rw
       
       # Mount your local development directory
-      - ../:/home/developer/livo2_ws:rw
+      - ../:/home/developer/workspace:rw
       
     # Network mode for ROS communication
     network_mode: "host"
