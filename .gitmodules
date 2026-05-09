@@ -1,0 +1,11 @@
+[submodule "src/fast-livo2"]
+	path = src/fast-livo2
+	url = https://github.com/wsxq2/FAST-LIVO2.git
+	branch = ros2
+[submodule "src/rpg_vikit"]
+	path = src/rpg_vikit
+	url = https://github.com/integralrobotics/rpg_vikit.git
+	branch = ros2
+[submodule "src/livox_ros2_driver"]
+	path = src/livox_ros2_driver
+	url = https://github.com/Livox-SDK/livox_ros2_driver.git
