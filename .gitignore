@@ -8,3 +8,5 @@ devel/
 src/CMakeLists.txt
 docker/.env
 bags/
+.cache/
+tmp/
