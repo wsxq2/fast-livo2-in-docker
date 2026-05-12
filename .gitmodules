@@ -9,9 +9,6 @@
 [submodule "src/livox_ros2_driver"]
 	path = src/livox_ros2_driver
 	url = https://github.com/wsxq2/livox_ros2_driver.git
-[submodule "src/Livox-SDK"]
-	path = src/Livox-SDK
-	url = https://github.com/Livox-SDK/Livox-SDK.git
 [submodule "src/FAST-Calib-ROS2"]
 	path = src/FAST-Calib-ROS2
 	url = https://github.com/ichangjian/FAST-Calib-ROS2.git
