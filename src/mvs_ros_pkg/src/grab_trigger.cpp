@@ -237,6 +237,8 @@ static void *WorkThread(void *pUser)
     nRet = MV_CC_GetOneFrameTimeout(pUser, pData, buf_size, &stImageInfo, 1000);
     if (nRet != MV_OK)
       continue;
+    printf("Got frame: %d x %d, PixelFormat=0x%x, PayloadSize=%d\n",
+           stImageInfo.nWidth, stImageInfo.nHeight, stImageInfo.enPixelType, stImageInfo.nFrameLen);
 
     /* ── 确定时间戳 ──────────────────────────────────────────────────────── */
     rclcpp::Time rcv_time;
@@ -434,7 +436,7 @@ int main(int argc, char **argv)
 
   nRet = MV_CC_SetEnumValue(handle, "PixelFormat", PIXEL_FORMAT_LIST[pixel_fmt_idx]);
   if (nRet != MV_OK) {
-    RCLCPP_ERROR(g_node->get_logger(), "Set PixelFormat fail! nRet [0x%x]", nRet);
+    RCLCPP_ERROR(g_node->get_logger(), "Set PixelFormat fail! nRet [0x%x], PixelFormat=0x%x", nRet, PIXEL_FORMAT_LIST[pixel_fmt_idx]);
     return -1;
   }
 

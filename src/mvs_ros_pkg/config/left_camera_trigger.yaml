@@ -34,4 +34,4 @@ GammaSelector: 1           # 0=User, 1=sRGB
 
 # 像素格式索引（对应 grab_trigger.cpp 中 PIXEL_FORMAT_LIST）
 # 0: RGB8, 1: BayerRG8, 2: BayerRG12Packed, 3: BayerGB12Packed, 4: BayerGB8
-PixelFormat: 0
+PixelFormat: 4
