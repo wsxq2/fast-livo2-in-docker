@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>mvs_ros_pkg</name>
+  <version>1.0.0</version>
+  <description>
+    海康威视 MVS 相机 ROS2 驱动 — 支持硬件触发（LINE0）及
+    基于共享内存文件 ~/timeshare 的纳秒级时间戳同步。
+    从 LIV_handhold (xuankuzcr) ROS1 版本移植到 ROS2 Humble。
+  </description>
+  <maintainer email="user@todo.todo">user</maintainer>
+  <license>MIT</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <depend>rclcpp</depend>
+  <depend>image_transport</depend>
+  <depend>cv_bridge</depend>
+  <depend>sensor_msgs</depend>
+  <depend>std_msgs</depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

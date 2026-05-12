@@ -1,0 +1,37 @@
+%YAML:1.0
+#--------------------------------------------------------------------------------------------
+# Camera Parameters. Adjust them!
+#--------------------------------------------------------------------------------------------
+
+# 单相机时可留空；多相机时必须填写目标相机铭牌上的序列号（Serial Number）
+SerialNumber: ""
+
+# ROS2 发布话题名（相对名称，无前导 /）
+TopicName: "right_camera/image"
+
+# 硬件触发：1=开启(LINE0, 与雷达 PPS 同步)；0=关闭(自由运行, 调试用)
+TriggerEnable: 1
+
+# 曝光模式：0=Off(手动固定), 1=Once, 2=Continues(自动)
+ExposureAutoMode: 0
+ExposureTime: 30000         # 手动曝光时间 (us)；ExposureAutoMode=0 时生效
+
+# ExposureAutoMode: 2
+# AutoExposureTimeLower: 100
+# AutoExposureTimeUpper: 20000
+
+# 图像缩放比例（输出相对传感器分辨率）；< 0.1 时强制为 1.0
+image_scale: 0.5           # 1 or 0.5
+
+# 增益：GainAuto: 0=Off, 1=Once, 2=Continues
+GainAuto: 2
+Gain: 15                   # min: 0   max: 17.0166
+
+# Gamma
+Gamma: 0.7                 # min: 0   max: 17.0166
+GammaSelector: 1           # 0=User, 1=sRGB
+# GammaEnable: 1
+
+# 像素格式索引（对应 grab_trigger.cpp 中 PIXEL_FORMAT_LIST）
+# 0: RGB8, 1: BayerRG8, 2: BayerRG12Packed, 3: BayerGB12Packed, 4: BayerGB8
+PixelFormat: 0
