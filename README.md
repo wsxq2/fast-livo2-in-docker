@@ -30,7 +30,7 @@ git submodule update --init
 
 本仓库使用的环境包括两个部分：local 和 remote。前者用于跑包，后者用于采包。下面分别说明
 
-### 跑包
+### local
 
 - ROS 版本：ROS2 humble。运行于 Docker 容器中
 - 操作系统：Docker + Ubuntu 22.04 容器
@@ -71,7 +71,7 @@ DISPLAY=host.docker.internal:0.0
 **VSCode Dev Container 简要说明**：vscode 的 dev container 功能让我们可以在 vscode 中快速构建 Docker 容器，搭建开发环境，并在其中进行开发和测试。关于此功能的更多信息，可参考 [Dev Containers - Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) 中提到的相关文档。关于使用此功能搭建开发环境的更多信息，可参考我的个人博客 [Docker + ROS2 开发环境搭建指南](https://wsxq2.55555.io/blog/2025/07/29/docker-ros2-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E6%8C%87%E5%8D%97/) 及 [使用 VSCode 打造多平台多语言通用的 IDE](https://wsxq2.55555.io/blog/2025/05/26/%E4%BD%BF%E7%94%A8vscode%E6%89%93%E9%80%A0%E5%A4%9A%E5%B9%B3%E5%8F%B0%E5%A4%9A%E8%AF%AD%E8%A8%80%E7%9A%84IDE/#github-pages-%E5%8D%9A%E5%AE%A2)
 
 
-### 采包
+### remote
 
 采包的计算平台可以是多样的，你可以使用 jetson、树莓派、妙算2、ARM 开发板等，只要你安装 ros2 humble 的环境，且可连接到前述传感器即可。
 
@@ -81,9 +81,7 @@ DISPLAY=host.docker.internal:0.0
 
 采包通常在设备上的计算平台中进行，比如官方使用的 [LIV_handhold] 中的妙算平台，或者我们自行搭建使用的树莓派 4B，后续以树莓派 4B 为例。在进一步执行前，需要在树莓派中 clone 本仓库，并安装相机 SDK（TODO：补充相关链接和文档）。
 
-注：激光雷达的 SDK 不需要手动安装，livox_sdk_vendor 包提供了自动安装的能力
-
-### 构建
+注：激光雷达的 SDK 不需要手动安装，livox_sdk_vendor 包提供了自动安装的能力。
 
 由于我们在采包时不需要跑 FAST-LIVO2 算法，所以也不需要编译相关包。因此编译命令如下所示：
 
@@ -92,7 +90,7 @@ colcon build --packages-up-to livox_ros2_driver # 激光雷达驱动
 colcon build --packages-up-to mvs_ros_pkg # 相机驱动
 ```
 
-### 运行
+编译完成后即可运行，运行命令如下：
 
 ```sh
 . install/setup.bash
@@ -100,7 +98,7 @@ ros2 launch livox_ros2_driver livox_lidar_msg_launch.py # 激光雷达驱动
 ros2 launch mvs_ros_pkg mvs_camera_trigger.launch.py # 相机驱动
 ```
 
-### 采包
+采包直接使用 `ros2 bag record` 命令：
 
 ```sh
 cd data/
