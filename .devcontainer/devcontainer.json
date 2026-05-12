@@ -9,7 +9,8 @@
         "vscode": {
             "extensions": [
                 "ms-vscode.cmake-tools",
-                "ms-iot.vscode-ros",
+                "ranch-hand-robotics.rde-ros-2",
+                "ranch-hand-robotics.urdf-editor",
                 "llvm-vs-code-extensions.vscode-clangd"
             ],
             "settings": {
