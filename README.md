@@ -107,7 +107,7 @@ ros2 bag record /livox/lidar /livox/imu /left_camera/image
 
 注意这里采集到的包是在树莓派上，需要通过 scp 等命令将其传输到本地 PC 上，且同样放置到 data/ 目录中。
 
-### 官方提供的测试包
+## 官方提供的测试包
 
 如果自己没有条件采包，可以从 [fast-livo2-dataset - OneDrive](https://connecthkuhk-my.sharepoint.com/:f:/g/personal/zhengcr_connect_hku_hk/ErdFNQtjMxZOorYKDTtK4ugBkogXfq1OfDm90GECouuIQA?e=KngY9Z) （此链接似乎失效了，可以尝试 Issue 下网友提供的[百度网盘链接](https://pan.baidu.com/s/13W2VAEBCVJi7PF210r_nSA?pwd=wxit)） 下载 bag 数据。建议下载最小的 `Retail_Street.bag`。解压并放置到 `data/` 目录。
 
