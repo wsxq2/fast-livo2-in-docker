@@ -89,6 +89,8 @@ DISPLAY=host.docker.internal:0.0
 
 采包通常在设备上的计算平台中进行，比如官方使用的 [LIV_handhold] 中的妙算平台，或者我们自行搭建使用的树莓派 4B，后续以树莓派 4B 为例。在进一步执行前，需要在树莓派中 clone 本仓库，并安装相机 SDK（TODO：补充相关链接和文档）。
 
+相机的SDK下载地址：https://www.hikrobotics.com/cn/machinevision/service/download/?module=0   根据所需版本自动下载MVS即可，MVS中包含有客户端，SDK，Demo等
+
 注：激光雷达的 SDK 不需要手动安装，livox_sdk_vendor 包提供了自动安装的能力。
 
 由于我们在采包时不需要跑 FAST-LIVO2 算法，所以也不需要编译相关包。因此编译命令如下所示：
