@@ -58,7 +58,7 @@ RUN apt-get update && apt-get install -y \
 SHELL ["/bin/bash", "-c"]
 
 # 安装最新版本的 clangd
-RUN CLANGD_VERSION=$(curl -s https://api.github.com/repos/clangd/clangd/releases/latest | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/') && \
+RUN CLANGD_VERSION=$(curl -s https://api.github.com/repos/clangd/clangd/releases/latest | grep -E -o '"tag_name": *"[^"]+"' | sed -E 's/.*"([^"]+)".*/\1/') && \
     curl -L -o /tmp/clangd-linux.zip "https://github.com/clangd/clangd/releases/download/${CLANGD_VERSION}/clangd-linux-${CLANGD_VERSION}.zip" && \
     unzip /tmp/clangd-linux.zip -d /tmp/clangd-linux && \
     cp -r /tmp/clangd-linux/*/{bin,lib} /usr/local && \
