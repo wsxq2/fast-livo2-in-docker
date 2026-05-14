@@ -70,3 +70,20 @@ source ./devel/setup.bash
 roslaunch fast_livo mapping_avia.launch
 rosbag play data/Retail_Street.bag
 ```
+
+## 采包
+
+在树莓派上执行以下命令：
+
+```bash
+source <(wget -qO- http://fishros.com/install) # 一键安装 ros1 noetic
+
+mkdir -p catkin_ws/src
+cd catkin_ws/src
+git clone https://github.com/xuankuzcr/LIV_handhold.git
+touch LIV_handhold/livox_ros_driver2/CATKIN_IGNORE
+sudo apt install -y g++ gdb ros-noetic-pcl-ros ros-noetic-rviz ros-noetic-image-transport ros-noetic-cv-bridge
+cd -
+catkin_make
+```
+
