@@ -78,12 +78,33 @@ rosbag play data/Retail_Street.bag
 ```bash
 source <(wget -qO- http://fishros.com/install) # 一键安装 ros1 noetic
 
+# clone LIV_handhold
 mkdir -p catkin_ws/src
-cd catkin_ws/src
+pushd catkin_ws/src
 git clone https://github.com/xuankuzcr/LIV_handhold.git
-touch LIV_handhold/livox_ros_driver2/CATKIN_IGNORE
-sudo apt install -y g++ gdb ros-noetic-pcl-ros ros-noetic-rviz ros-noetic-image-transport ros-noetic-cv-bridge
-cd -
-catkin_make
-```
 
+touch LIV_handhold/livox_ros_driver2/CATKIN_IGNORE
+
+# 安装 livox sdk
+curl -OL https://github.com/Livox-SDK/Livox-SDK/archive/refs/heads/master.zip
+unzip master.zip
+cd Livox-SDK-master/build
+cmake ..
+make
+sudo make install
+popd
+
+# 安装依赖
+sudo apt install -y g++ gdb ros-noetic-pcl-ros ros-noetic-rviz ros-noetic-image-transport ros-noetic-cv-bridge
+
+catkin_make -DCMAKE_BUILD_TYPE=Debug
+
+# 准备工作以连接激光雷达
+sudo ip addr add 192.168.1.50/24 dev eth0
+vim livox_lidar_config.json
+
+# 启动驱动
+roslaunch livox_ros_driver livox_lidar_msg.launch
+roslaunch mvs_ros_driver mvs_camera_trigger.launch
+
+```
