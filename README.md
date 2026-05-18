@@ -95,7 +95,7 @@ sudo make install
 popd
 
 # 安装依赖
-sudo apt install -y g++ gdb ros-noetic-pcl-ros ros-noetic-rviz ros-noetic-image-transport ros-noetic-cv-bridge
+sudo apt install --no-install-recommends -y g++ gdb ros-noetic-pcl-ros ros-noetic-rviz ros-noetic-image-transport ros-noetic-cv-bridge
 
 catkin_make -DCMAKE_BUILD_TYPE=Debug
 
