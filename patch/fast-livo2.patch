@@ -1,0 +1,54 @@
+diff --git a/config/avia.yaml b/config/avia.yaml
+index b0fc0b1..a309fbb 100755
+--- a/config/avia.yaml
++++ b/config/avia.yaml
+@@ -9,10 +9,10 @@ common:
+ extrin_calib:
+   extrinsic_T: [0.04165, 0.02326, -0.0284]
+   extrinsic_R: [1, 0, 0, 0, 1, 0, 0, 0, 1]
+-  Rcl: [0.00610193,-0.999863,-0.0154172,
+-        -0.00615449,0.0153796,-0.999863,
+-        0.999962,0.00619598,-0.0060598] 
+-  Pcl: [0.0194384, 0.104689,-0.0251952]
++  Rcl: [-0.014717, -0.999822, -0.011797,
++        -0.033110,  0.012279, -0.999376,
++         0.999344, -0.014317, -0.033285]
++  Pcl: [-0.033823, 0.009402, -0.056943]
+ 
+ time_offset: 
+   imu_time_offset: 0.0
+@@ -77,7 +77,7 @@ evo:
+   pose_output_en: false
+ 
+ pcd_save:
+-  pcd_save_en: false
++  pcd_save_en: true
+   type: 0 # 0: World Frame, 1: Body Frame;
+   colmap_output_en: false # need to set interval = -1
+   filter_size_pcd: 0.15
+diff --git a/config/camera_pinhole.yaml b/config/camera_pinhole.yaml
+index 83fd89e..9df81bc 100644
+--- a/config/camera_pinhole.yaml
++++ b/config/camera_pinhole.yaml
+@@ -2,11 +2,11 @@ cam_model: Pinhole
+ cam_width: 1280
+ cam_height: 1024
+ scale: 0.5
+-cam_fx: 1293.56944
+-cam_fy: 1293.3155
+-cam_cx: 626.91359
+-cam_cy: 522.799224
+-cam_d0: -0.076160
+-cam_d1: 0.123001
+-cam_d2: -0.00113
+-cam_d3: 0.000251
+\ No newline at end of file
++cam_fx: 1258.2152870533384
++cam_fy: 1258.3999409785761
++cam_cx: 639.51191223848059
++cam_cy: 530.66378283843449
++cam_d0: -0.073685045253835152
++cam_d1: 0.081916678099937495
++cam_d2: -0.00023046923408783635
++cam_d3: -0.00092201539173782771
+\ No newline at end of file
