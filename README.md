@@ -6,13 +6,15 @@
 
 Docker 安装并配置完成后，需要从 [fast-livo2-dataset - OneDrive](https://connecthkuhk-my.sharepoint.com/:f:/g/personal/zhengcr_connect_hku_hk/ErdFNQtjMxZOorYKDTtK4ugBkogXfq1OfDm90GECouuIQA?e=KngY9Z) 下载 bag 数据。建议下载最小的 `Retail_Street.bag`。解压并放置到 `data/` 目录。
 
-下载源码：
+本项目通过 Git submodule 固定 FAST-LIVO2 和 rpg_vikit 的源码版本。在项目根目录初始化源码：
 
 ```bash
-cd src
-git clone https://github.com/hku-mars/FAST-LIVO2.git
-git clone https://github.com/xuankuzcr/rpg_vikit.git 
+git submodule update --init --recursive
 ```
+
+首次克隆本项目时，也可以使用 `git clone --recurse-submodules <本项目仓库地址>`。拉取主仓库更新后，再执行上述初始化命令，使子模块版本与主仓库记录一致。
+
+子模块中的本地修改不会随主仓库提交一起保存。若要共享这些修改，需要先在子模块中提交并推送到有写权限的仓库（例如自己的 fork），按需更新 `.gitmodules` 中的仓库地址，再在主仓库提交新的子模块版本引用。
 
 此时检查下目录结构，确保目录结构如下：
 
@@ -63,6 +65,13 @@ DISPLAY=host.docker.internal:0.0
 catkin_make
 source ./devel/setup.bash
 ```
+
+运行自己的设备或采集的数据前，官方提供的配置也需要根据实际标定结果修改，不能直接套用示例值：
+
+- [`avia.yaml`](src/FAST-LIVO2/config/avia.yaml)：根据标定结果修改 `extrin_calib` 中的外参（`extrinsic_T`、`extrinsic_R`、`Rcl`、`Pcl`），并根据时间同步结果调整 `time_offset` 中的相应参数；话题名称和雷达类型等也需要与实际设备及 bag 一致。
+- [`camera_pinhole.yaml`](src/FAST-LIVO2/config/camera_pinhole.yaml)：根据相机标定结果修改焦距 `cam_fx`、`cam_fy`、主点 `cam_cx`、`cam_cy` 和畸变系数 `cam_d0` 至 `cam_d3`，并核对图像尺寸 `cam_width`、`cam_height` 及缩放设置 `scale`。
+
+填写参数时需遵循 FAST-LIVO2 对坐标系、变换方向及参数单位的约定。上述配置位于 FAST-LIVO2 子模块内，共享修改时需按前述子模块流程提交。
 
 然后执行以下命令（打开两个 Teminal 分别执行）：
 
