@@ -1,0 +1,6 @@
+[submodule "src/FAST-LIVO2"]
+	path = src/FAST-LIVO2
+	url = https://github.com/hku-mars/FAST-LIVO2.git
+[submodule "src/rpg_vikit"]
+	path = src/rpg_vikit
+	url = https://github.com/xuankuzcr/rpg_vikit.git
